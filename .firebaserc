@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "semmie-assignment": {
+      "hosting": {
+        "portfolio-assignment": [
+          "semmie-assignment"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "semmie-assignment"
+  }
+}
