@@ -1,7 +1,7 @@
 import { random } from '../random';
-import { finance } from 'faker';
 import { Account, AccountHistory, AccountType } from '@portfolio/models';
 import { v4 } from 'uuid';
+import { generateName } from '../generate-name';
 
 interface GeneratedAccount {
   account: Account;
@@ -18,7 +18,7 @@ export const generateAccount = (): GeneratedAccount => {
     account: {
       id: v4(),
       goal,
-      name: finance.accountName(),
+      name: generateName(),
       accountType: random(AccountType.Personal, AccountType.Shared),
     },
     history: [...Array(days).keys()].map(() => ({ id: v4(), value: random(min, max) })),

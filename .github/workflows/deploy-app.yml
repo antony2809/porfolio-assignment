@@ -33,7 +33,7 @@ jobs:
         uses: actions/upload-artifact@v2.2.4
         with:
           name: ${{ github.ref_name }}
-          path: 'dist/apps/portfolio'
+          path: 'dist/portfolio-assignment'
           retention-days: 14
 
   deploy:
@@ -47,7 +47,7 @@ jobs:
         uses: actions/download-artifact@v2.0.10
         with:
           name: ${{ github.ref_name }}
-          path: 'dist/apps/portfolio'
+          path: 'dist/portfolio-assignment'
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:

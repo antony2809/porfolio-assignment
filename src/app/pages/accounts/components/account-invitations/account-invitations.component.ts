@@ -7,5 +7,4 @@ import { Account, AccountType } from '@portfolio/models';
   styleUrls: ['./account-invitations.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AccountInvitationsComponent {
-}
+export class AccountInvitationsComponent {}

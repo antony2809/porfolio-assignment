@@ -8,9 +8,8 @@ describe('AccountInvitationsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AccountInvitationsComponent ]
-    })
-    .compileComponents();
+      declarations: [AccountInvitationsComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

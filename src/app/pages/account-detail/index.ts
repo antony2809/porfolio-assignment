@@ -1,1 +1,1 @@
-export {AccountDetailModule} from './account-detail.module'
+export { AccountDetailModule } from './account-detail.module';

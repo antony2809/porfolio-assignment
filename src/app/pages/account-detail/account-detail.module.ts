@@ -14,7 +14,7 @@ import { AccountHeaderComponent } from './components/account-header/account-head
     AccountGoalComponent,
     AccountCurrentComponent,
     AccountChartComponent,
-    AccountHeaderComponent
+    AccountHeaderComponent,
   ],
   imports: [CommonModule, AccountDetailRoutingModule],
 })
