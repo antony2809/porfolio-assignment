@@ -1,9 +1,10 @@
-name: 'Production Deployment'
+name: 'App Deploy'
 
 on:
   push:
-    tags:
-      - '*'
+    branches:
+      - master
+  workflow_dispatch:
 
 jobs:
   build:
