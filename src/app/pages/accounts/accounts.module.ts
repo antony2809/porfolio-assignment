@@ -7,8 +7,10 @@ import { AccountInvitationsComponent } from './components/account-invitations/ac
 import { AccountListComponent } from './components/account-list/account-list.component';
 import { AccountCardComponent } from './components/account-card/account-card.component';
 
+import { SpinnerModule } from '@portfolio/shared/spinner';
+
 @NgModule({
   declarations: [AccountsLandingComponent, AccountInvitationsComponent, AccountListComponent, AccountCardComponent],
-  imports: [CommonModule, AccountsRoutingModule],
+  imports: [CommonModule, AccountsRoutingModule, SpinnerModule],
 })
 export class AccountsModule {}

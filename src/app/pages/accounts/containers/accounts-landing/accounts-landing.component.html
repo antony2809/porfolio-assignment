@@ -1,1 +1,31 @@
-<p>accounts-landing works!</p>
+<ng-container
+  *ngIf="{
+    loading: loading$ | async,
+    creating: creating$ | async,
+    accounts: accounts$ | async,
+    buttonText: buttonText$ | async
+  } as ctx"
+>
+  <div class="py-8">
+    <div class="flex justify-between items-center">
+      <h1 class="text-4xl font-bold">Hi, Vincent</h1>
+      <button
+        (click)="handleCreateAccount()"
+        [disabled]="ctx.creating"
+        class="inline-flex items-center px-4 py-3 border border-transparent text-base leading-6 min-w-[10rem] flex justify-center font-medium rounded-full text-gray-500 bg-gray-100 transition ease-in-out duration-150"
+        [ngClass]="{ 'hover:bg-primary hover:text-white': !ctx.creating }"
+      >
+        <span>{{ ctx.buttonText }}</span>
+        <ng-container *ngIf="ctx.creating">
+          <sem-spinner class="text-primary ml-3"></sem-spinner>
+        </ng-container>
+      </button>
+    </div>
+    <sem-account-invitations></sem-account-invitations>
+    <sem-account-list
+      [accounts]="ctx.accounts"
+      [loading]="ctx.loading"
+      (create)="handleCreateAccount()"
+    ></sem-account-list>
+  </div>
+</ng-container>

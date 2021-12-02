@@ -16,7 +16,6 @@ import { AppComponent } from './app.component';
     provideFirestore(() => getFirestore()),
     provideFunctions(() => getFunctions()),
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

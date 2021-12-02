@@ -1,0 +1,6 @@
+:host {
+  @apply block mt-16;
+  &.empty {
+    @apply flex flex-col items-start;
+  }
+}

@@ -20,7 +20,11 @@
     "esModuleInterop": true,
     "paths": {
       "@portfolio/pages/accounts": ["src/app/pages/accounts/index.ts"],
-      "@portfolio/pages/account-detail": ["src/app/pages/account-detail/index.ts"]
+      "@portfolio/pages/account-detail": ["src/app/pages/account-detail/index.ts"],
+      "@portfolio/shared/spinner": ["src/app/shared/spinner/index.ts"],
+      "@portfolio/utilities": ["src/app/utilities/index.ts"],
+      "@portfolio/models": ["src/app/models/index.ts"],
+      "@portfolio/constants": ["src/app/constants/index.ts"]
     }
   },
   "angularCompilerOptions": {

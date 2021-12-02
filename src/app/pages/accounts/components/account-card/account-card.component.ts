@@ -1,16 +1,15 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Account, AccountType } from '@portfolio/models';
 
 @Component({
   selector: 'sem-account-card',
   templateUrl: './account-card.component.html',
   styleUrls: ['./account-card.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AccountCardComponent implements OnInit {
+export class AccountCardComponent {
+  @Input()
+  public account?: Account;
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  public accountType = AccountType;
 }

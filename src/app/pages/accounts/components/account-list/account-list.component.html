@@ -1,1 +1,46 @@
-<p>account-list works!</p>
+<h5 class="text-gray-500 text-sm font-medium mb-2">Accounts</h5>
+
+<ng-container *ngIf="loading; else accountListTpl">
+  <div class="grid grid-cols-12 gap-8">
+    <div
+      *ngFor="let item of skeletons"
+      class="col-span-3 rounded-lg aspect-w-1 aspect-h-1 animate-pulse bg-gray-300"
+    ></div>
+  </div>
+</ng-container>
+
+<ng-template #accountListTpl>
+  <ng-container *ngIf="accounts?.length; else emptyResultTpl">
+    <div class="grid grid-cols-12 gap-8">
+      <sem-account-card class="col-span-3" [account]="account" *ngFor="let account of accounts"></sem-account-card>
+    </div>
+  </ng-container>
+  <ng-template #emptyResultTpl>
+    <div class="flex flex-col p-4 bg-gray-200 rounded-lg">
+      <h3 class="mt-2 text-sm font-medium text-gray-900">No accounts</h3>
+      <p class="mt-1 text-sm text-gray-500">Get started by creating a new account</p>
+      <div class="mt-4">
+        <button
+          (click)="create.emit()"
+          type="button"
+          class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-primary focus:outline-none"
+        >
+          <svg
+            class="-ml-1 mr-2 h-5 w-5"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          Create Account
+        </button>
+      </div>
+    </div>
+  </ng-template>
+</ng-template>

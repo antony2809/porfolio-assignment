@@ -1,1 +1,22 @@
-<p>account-card works!</p>
+<ng-container *ngIf="account">
+  <a
+    [routerLink]="[account.id]"
+    class="block aspect-w-1 aspect-h-1 relative rounded-lg overflow-hidden hover:shadow-2xl transition ease-in-out duration-250"
+  >
+    <div class="absolute inset-0 z-0">
+      <img class="object-cover h-full w-full" src="assets/img/bg-account.jpg" />
+    </div>
+    <div class="absolute inset-0 bg-transparent z-10 flex flex-col justify-between items-start p-4">
+      <div class="rounded-full text-xs font-medium uppercase bg-black text-white px-4 py-1">
+        <ng-container [ngSwitch]="account.accountType">
+          <ng-container *ngSwitchCase="accountType.Shared">Shared</ng-container>
+          <ng-container *ngSwitchDefault>Personal</ng-container>
+        </ng-container>
+      </div>
+      <div class="text-white pb-2">
+        <h3 class="text-xl font-medium tracking-wide">{{ account.name }}</h3>
+        <p>{{ account.goal | currency: 'EUR':'symbol':'1.2-2' }}</p>
+      </div>
+    </div>
+  </a>
+</ng-container>
