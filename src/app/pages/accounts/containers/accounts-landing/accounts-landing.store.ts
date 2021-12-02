@@ -17,10 +17,9 @@ import {
   orderBy,
   query,
   serverTimestamp,
-  setDoc,
   writeBatch,
 } from '@angular/fire/firestore';
-import { forkJoin, from, Observable, of } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
 import { generateAccount } from '@portfolio/utilities';
 
 interface AccountLandingState {
@@ -65,24 +64,20 @@ export class AccountsLandingStore extends ComponentStore<AccountLandingState> {
   private createAccount = this.effect<void>((void$) =>
     void$.pipe(
       map(() => generateAccount()),
-      switchMap(({ account, history }) =>
-        forkJoin([
-          from(setDoc(doc(this.accountsCollection, account.id), { ...account, created: serverTimestamp() })),
-          of(writeBatch(this.firestore)).pipe(
-            switchMap((batch) => {
-              for (const ref of history) {
-                batch.set(doc(this.accountsCollection, account.id, ACCOUNT_HISTORY_COLLECTION, ref.id), ref);
-              }
-              return from(batch.commit());
-            })
-          ),
-        ]).pipe(
+      switchMap(({ account, history }) => {
+        const batch = writeBatch(this.firestore);
+
+        for (const ref of history) {
+          batch.set(doc(this.accountsCollection, account.id, ACCOUNT_HISTORY_COLLECTION, ref.id), ref);
+        }
+        batch.set(doc(this.accountsCollection, account.id), { ...account, created: serverTimestamp() });
+        return from(batch.commit()).pipe(
           catchError(() => {
             alert(ACCOUNT_CREATION_ERROR_LABEL);
             return of(null);
           })
-        )
-      )
+        );
+      })
     )
   );
 }
