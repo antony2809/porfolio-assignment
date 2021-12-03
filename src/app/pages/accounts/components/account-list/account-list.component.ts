@@ -14,10 +14,10 @@ export class AccountListComponent {
   }
 
   @Input()
-  public accounts!: Account[] | null;
+  public accounts!: Account[];
 
   @Input()
-  public loading!: boolean | null;
+  public loading!: boolean;
 
   @Output()
   public readonly create = new EventEmitter<void>();

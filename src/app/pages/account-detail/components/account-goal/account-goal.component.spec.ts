@@ -21,4 +21,16 @@ describe('AccountGoalComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should not update the percentage value', () => {
+    component.ngOnChanges();
+    expect(component.percentage).toBe(0);
+  });
+
+  it('should update the percetange value', () => {
+    component.current = 400;
+    component.account = { goal: 1000 } as any;
+    component.ngOnChanges();
+    expect(component.percentage).toBe(40);
+  });
 });

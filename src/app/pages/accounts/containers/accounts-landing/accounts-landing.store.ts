@@ -44,7 +44,7 @@ export class AccountsLandingStore extends ComponentStore<AccountLandingState> {
 
   public readonly creating$ = this.select(({ creating }) => creating);
 
-  public readonly buttonText$ = this.loading$.pipe(
+  public readonly buttonText$ = this.creating$.pipe(
     map((loading) => (loading ? ACCOUNT_CREATING_LABEL : ACCOUNT_CREATE_LABEL))
   );
 
@@ -57,7 +57,7 @@ export class AccountsLandingStore extends ComponentStore<AccountLandingState> {
     this.createAccount();
   }
 
-  private readonly accountsFetched = this.effect<Account[]>((void$) =>
+  public readonly accountsFetched = this.effect<Account[]>((void$) =>
     void$.pipe(tap(() => this.patchState({ loading: false, creating: false })))
   )(this.accounts$);
 

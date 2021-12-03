@@ -7,6 +7,7 @@ import { AccountGoalComponent } from './components/account-goal/account-goal.com
 import { AccountCurrentComponent } from './components/account-current/account-current.component';
 import { AccountChartComponent } from './components/account-chart/account-chart.component';
 import { AccountHeaderComponent } from './components/account-header/account-header.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,6 @@ import { AccountHeaderComponent } from './components/account-header/account-head
     AccountChartComponent,
     AccountHeaderComponent,
   ],
-  imports: [CommonModule, AccountDetailRoutingModule],
+  imports: [CommonModule, AccountDetailRoutingModule, NgApexchartsModule],
 })
 export class AccountDetailModule {}

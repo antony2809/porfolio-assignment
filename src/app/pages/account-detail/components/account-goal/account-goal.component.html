@@ -1,1 +1,56 @@
-<p>account-goal works!</p>
+<h5 class="text-gray-500 text-sm font-medium mb-2">My goal</h5>
+<div class="flex flex-col bg-white rounded-2xl shadow-md">
+  <div class="p-6 flex items-center space-x-6 border-b border-gray-100">
+    <div class="w-[6.5rem] h-[6.5rem] text-primary relative">
+      <svg viewBox="0 0 36 36" stroke="currentColor">
+        <path
+          class="circle-bg"
+          d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+        />
+        <path
+          class="circle"
+          [attr.strokeDashArray]="dashArray"
+          stroke-dasharray="30, 100"
+          d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+        />
+      </svg>
+      <div class="absolute inset-0 flex items-center justify-center">{{percentage | number:'1.0-0'}}%</div>
+    </div>
+    <div class="flex flex-col space-y-2 flex-grow">
+      <div class="flex justify-between">
+        <div class="text-gray-500">Target</div>
+        <div class="font-medium">{{ account?.goal | currency: 'EUR':'symbol':'1.2-2' }}</div>
+      </div>
+      <div class="flex justify-between">
+        <div class="text-gray-500">Monthly deposit</div>
+        <div class="font-medium">{{ 50 | currency: 'EUR':'symbol':'1.2-2' }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="p-6">
+    <div class="flex justify-between items-center">
+      <div class="flex space-x-4 items-center">
+        <svg
+          class="w-6 h-6 text-gray-300"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+          ></path>
+        </svg>
+        <span class="font-medium text-lg">Automatic collection</span>
+      </div>
+      <span class="text-sm font-semibold text-yellow-400">Inactive</span>
+    </div>
+  </div>
+</div>

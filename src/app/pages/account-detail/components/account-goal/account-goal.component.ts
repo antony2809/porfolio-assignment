@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/core';
+import { Account } from '@portfolio/models';
 
 @Component({
   selector: 'sem-account-goal',
@@ -6,8 +7,20 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./account-goal.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AccountGoalComponent implements OnInit {
-  constructor() {}
+export class AccountGoalComponent implements OnChanges {
+  @Input()
+  public account!: Account;
 
-  ngOnInit(): void {}
+  @Input()
+  public current = 0;
+
+  public percentage = 0;
+  public dashArray = '';
+
+  public ngOnChanges() {
+    if (this.account && this.current) {
+      this.percentage = (this.current * 100) / this.account.goal;
+      this.dashArray = `${this.percentage}, 100`;
+    }
+  }
 }

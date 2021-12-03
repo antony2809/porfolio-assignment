@@ -18,6 +18,7 @@
     "module": "es2020",
     "lib": ["es2018", "dom"],
     "esModuleInterop": true,
+    "strictPropertyInitialization": false,
     "paths": {
       "@portfolio/pages/accounts": ["src/app/pages/accounts/index.ts"],
       "@portfolio/pages/account-detail": ["src/app/pages/account-detail/index.ts"],
@@ -31,6 +32,6 @@
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": false
   }
 }

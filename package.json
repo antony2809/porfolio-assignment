@@ -29,7 +29,10 @@
     "@angular/router": "~13.0.2",
     "@ngrx/component-store": "^13.0.1",
     "@tailwindcss/aspect-ratio": "^0.3.0",
+    "apexcharts": "^3.31.0",
+    "date-fns": "^2.27.0",
     "firebase": "^9.4.0",
+    "ng-apexcharts": "^1.6.0",
     "rxfire": "^6.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
@@ -76,10 +79,16 @@
       "<rootDir>/dist/",
       "<rootDir>/src/test.ts"
     ],
+    "testMatch": ["**/+(*.)+(spec|test).+(ts|js)?(x)"],
+    "testEnvironment": "jsdom",
+    "transform": {
+      "^.+\\.(ts|js|html)$": "ts-jest"
+    },
     "globals": {
       "ts-jest": {
         "tsconfig": "<rootDir>/tsconfig.spec.json",
-        "stringifyContentPathRegex": "\\.html$"
+        "stringifyContentPathRegex": "\\.html$",
+        "isolatedModules": true
       }
     }
   },

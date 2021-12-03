@@ -1,1 +1,21 @@
-<p>account-chart works!</p>
+<div class="flex flex-col bg-white rounded-2xl shadow-md mt-[1.75rem]">
+  <div class="p-4 flex-justify-between">
+    <div class="block">
+      <small class="text-gray-500 font-medium">Performance</small>
+      <div class="flex items-center space-x-2">
+        <div class="text-3xl text-primary">20,29%</div>
+        <div>{{ current | currency: 'EUR':'symbol':'1.2-2' }}</div>
+      </div>
+    </div>
+
+  </div>
+  <apx-chart
+    [series]="chartOptions.series"
+    [chart]="chartOptions.chart"
+    [yaxis]="chartOptions.yaxis"
+    [xaxis]="chartOptions.xaxis"
+    [grid]="chartOptions.grid"
+    [dataLabels]="chartOptions.dataLabels"
+  ></apx-chart>
+</div>
+

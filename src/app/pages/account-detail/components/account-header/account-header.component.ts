@@ -1,4 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Account, AccountType } from '@portfolio/models';
+import { accountDetailActions } from '../../constants';
 
 @Component({
   selector: 'sem-account-header',
@@ -6,8 +8,11 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./account-header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AccountHeaderComponent implements OnInit {
-  constructor() {}
+export class AccountHeaderComponent {
+  @Input()
+  public account!: Account;
 
-  ngOnInit(): void {}
+  public actions = accountDetailActions;
+
+  public readonly accountType = AccountType;
 }

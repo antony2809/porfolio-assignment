@@ -1,1 +1,29 @@
-<p>account-current works!</p>
+<h5 class="text-gray-500 text-sm font-medium mb-2">Current Value</h5>
+<div class="flex flex-col bg-white rounded-2xl shadow-md">
+  <div class="p-6 border-b border-gray-100">
+    <div class="flex justify-between items-center">
+      <div class="flex flex-col space-y-2 flex-grow">
+        <div class="flex justify-between">
+          <div class="text-gray-500">Saldo</div>
+          <div class="font-medium text-lg">{{ total | currency: 'EUR':'symbol':'1.2-2' }}</div>
+        </div>
+        <div class="flex justify-between">
+          <div class="text-gray-500">Booster</div>
+          <div class="font-medium text-gray-500">{{ 0 | currency: 'EUR':'symbol':'1.2-2' }}</div>
+        </div>
+        <div class="flex justify-between">
+          <div class="text-gray-500">Initial investment</div>
+          <div class="font-medium text-gray-500">{{ initial | currency: 'EUR':'symbol':'1.2-2' }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-6">
+    <div class="flex justify-between">
+      <div class="text-gray-500">Balance</div>
+      <div class="font-medium text-lg" [class.text-red-500]="total < 0">
+        {{ current | currency: 'EUR':'symbol':'1.2-2' }}
+      </div>
+    </div>
+  </div>
+</div>
